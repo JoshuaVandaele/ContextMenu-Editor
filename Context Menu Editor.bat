@@ -44,7 +44,9 @@ echo."Icon"="%Icon%" >> Menu.reg
 echo.@="%exec%" >> Menu.reg
 
 echo Done!
-echo if you wanna remove the context menu go to [HKEY_CLASSES_ROOT\Directory\shell] and remove 01Menu%MUIVerb%
+echo if you wanna remove the context menu either use the given file or do it manually
+echo to do it manually go to [HKEY_CLASSES_ROOT\Directory\shell] and remove 01Menu%MUIVerb%
 echo then go to [HKEY_CLASSES_ROOT\Directory\ContextMenus] and remove Menu%MUIVerb%
+echo finally go to [HKEY_CLASSES_ROOT\Directory\backround\shell] and remove Menu%MUIVerb%
 echo and the menu will be removed!
 pause
