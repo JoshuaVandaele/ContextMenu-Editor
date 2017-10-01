@@ -15,7 +15,9 @@ echo.
 set /p value=
 reg delete "HKEY_CLASSES_ROOT\Directory\ContextMenus\%value%"
 reg delete "HKEY_CLASSES_ROOT\Directory\Background\shell\01%value%"
+reg delete "HKEY_CLASSES_ROOT\Directory\Background\shell\%value%"
 reg delete "HKEY_CLASSES_ROOT\Directory\shell\01%value%"
+reg delete "HKEY_CLASSES_ROOT\Directory\shell\%value%"
 echo.
 echo.all done!
 pause
