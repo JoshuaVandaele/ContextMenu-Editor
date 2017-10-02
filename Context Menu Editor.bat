@@ -10,42 +10,42 @@ echo.Where is the executable? (USE TWO \ EXEMPLE: C:\Windows BECOME C:\\Windows.
 set /p exec=
 echo.What do you want it to be? [1] a Menu (Open %exec% plus Open %exec% Elevated) [2] one entry (Open %exec%)
 choice /c 12
-IF %ERRORLEVEL% == 1 goto one
-IF %ERRORLEVEL% == 2 goto two
+IF %ERRORLEVEL% == 1 goto two
+IF %ERRORLEVEL% == 2 goto one
 exit
 
 :two
 echo.Windows Registry Editor Version 5.00 > Menu.reg
 echo. >> Menu.reg
 echo.[HKEY_CLASSES_ROOT\Directory\shell\01Menu%MUIVerb%] >> Menu.reg
-echo."MUIVerb"="Open %MUIVerb%" >> Menu.reg
+echo."MUIVerb"="%MUIVerb%" >> Menu.reg
 echo."Icon"="%Icon%" >> Menu.reg
 echo."ExtendedSubCommandsKey"="Directory\\ContextMenus\\Menu%MUIVerb%" >> Menu.reg
 echo. >> Menu.reg
 echo.[HKEY_CLASSES_ROOT\Directory\background\shell\01Menu%MUIVerb%] >> Menu.reg
-echo."MUIVerb"="Open %MUIVerb%" >> Menu.reg
+echo."MUIVerb"="%MUIVerb%" >> Menu.reg
 echo."Icon"="%Icon%" >> Menu.reg
 echo."ExtendedSubCommandsKey"="Directory\\ContextMenus\\Menu%MUIVerb%" >> Menu.reg
 echo. >> Menu.reg
 echo.[HKEY_CLASSES_ROOT\Directory\ContextMenus\Menu%MUIVerb%\shell\%MUIVerb%_admin] >> Menu.reg
-echo."MUIVerb"="Open %MUIVerb% Elevated" >> Menu.reg
+echo."MUIVerb"="%MUIVerb% Elevated" >> Menu.reg
 echo."Icon"="%Icon%" >> Menu.reg
 echo.@="powershell.exe -Command Start-Process %exec% -Verb RunAs" >> Menu.reg
 echo."HasLUAShield"="" >> Menu.reg
 echo. >> Menu.reg
 echo.[HKEY_CLASSES_ROOT\Directory\ContextMenus\Menu%MUIVerb%\shell\%MUIVerb%] >> Menu.reg
-echo."MUIVerb"="Open %MUIVerb%" >> Menu.reg
+echo."MUIVerb"="%MUIVerb%" >> Menu.reg
 echo."Icon"="%Icon%" >> Menu.reg
 echo.@="%exec%" >> Menu.reg
 echo. >> Menu.reg
 echo.[HKEY_CLASSES_ROOT\Directory\ContextMenus\Menu%MUIVerb%\shell\%MUIVerb%_admin\command] >> Menu.reg
-echo."MUIVerb"="Open %MUIVerb% Elevated" >> Menu.reg
+echo."MUIVerb"="%MUIVerb% Elevated" >> Menu.reg
 echo."Icon"="%Icon%" >> Menu.reg
 echo.@="powershell.exe -Command Start-Process %exec% -Verb RunAs" >> Menu.reg
 echo."HasLUAShield"="" >> Menu.reg
 echo. >> Menu.reg
 echo.[HKEY_CLASSES_ROOT\Directory\ContextMenus\Menu%MUIVerb%\shell\%MUIVerb%\command] >> Menu.reg
-echo."MUIVerb"="Open %MUIVerb%" >> Menu.reg
+echo."MUIVerb"="%MUIVerb%" >> Menu.reg
 echo."Icon"="%Icon%" >> Menu.reg
 echo.@="%exec%" >> Menu.reg
 goto done
@@ -56,7 +56,7 @@ echo.  >> Menu.reg
 echo.[HKEY_CLASSES_ROOT\Directory\shell\%MUIVerb%]  >> Menu.reg
 echo.@="" >> Menu.reg
 echo."Extended"="" >> Menu.reg
-echo."MUIVerb"="Open %MUIVerb%" >> Menu.reg
+echo."MUIVerb"="%MUIVerb%" >> Menu.reg
 echo."Icon"="%Icon%" >> Menu.reg
 echo. >> Menu.reg
 echo.[HKEY_CLASSES_ROOT\Directory\shell\%MUIVerb%\command] >> Menu.reg 
@@ -64,7 +64,7 @@ echo.@="%exec%" >> Menu.reg
 echo. >> Menu.reg
 echo.[HKEY_CLASSES_ROOT\Directory\Background\shell\%MUIVerb%] >> Menu.reg 
 echo.@="" >> Menu.reg
-echo."MUIVerb"="Open %MUIVerb%" >> Menu.reg
+echo."MUIVerb"="%MUIVerb%" >> Menu.reg
 echo."Icon"="%Icon%" >> Menu.reg
 echo. >> Menu.reg
 echo.[HKEY_CLASSES_ROOT\Directory\Background\shell\%MUIVerb%\command] >> Menu.reg 
