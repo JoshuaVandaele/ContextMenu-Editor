@@ -1,4 +1,4 @@
-::Made By TheJoshua974
+::Made By Folfy Blue
 @echo off
 echo.Hello %username%
 echo.Please avoid using spaces, you could break your registry value, try to only do spaces when it's for paths or file names
